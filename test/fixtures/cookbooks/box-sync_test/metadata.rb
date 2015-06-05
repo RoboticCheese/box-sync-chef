@@ -1,15 +1,16 @@
 # Encoding: UTF-8
 #
 # rubocop:disable SingleSpaceBeforeFirstArg
-name             'box-sync'
+name             'box-sync_test'
 maintainer       'Jonathan Hartman'
 maintainer_email 'j@p4nt5.com'
 license          'apache2'
-description      'Installs the Box Sync app'
-long_description 'Installs the Box Sync app'
+description      'box-sync_test'
+long_description 'box-sync_test'
 version          '0.0.1'
 
-supports         'mac_os_x'
+depends          'box-sync'
 
-depends          'dmg', '~> 2.2'
+supports         'mac_os_x'
+# TODO: supports         'windows'
 # rubocop:enable SingleSpaceBeforeFirstArg

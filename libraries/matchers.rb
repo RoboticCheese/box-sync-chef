@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: box-sync
-# Recipe:: default
+# Library:: matchers
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -18,6 +18,12 @@
 # limitations under the License.
 #
 
-box_sync_app 'default' do
-  action :install
+if defined?(ChefSpec)
+  ChefSpec.define_matcher(:box_sync_app)
+
+  [:install, :remove].each do |a|
+    define_method("#{a}_box_sync_app") do |name|
+      ChefSpec::Matchers::ResourceMatcher.new(:box_sync_app, a, name)
+    end
+  end
 end
