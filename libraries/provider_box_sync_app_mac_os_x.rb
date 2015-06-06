@@ -34,13 +34,18 @@ class Chef
         private
 
         #
-        # Prep and then run the Box Sync install script.
+        # Install the Box Sync .dmg package.
         #
         # (see BoxSyncApp#install!)
         #
         def install!
-          set_up_installer
-          run_installer
+          s = chase_redirect(URL)
+          dmg_package 'Box Sync' do
+            source s
+            volumes_dir 'Box Sync Installer'
+            action :install
+            not_if { ::File.exist?(PATH) }
+          end
         end
 
         #
@@ -56,35 +61,6 @@ class Chef
               recursive true
               action :delete
             end
-          end
-        end
-
-        #
-        # Use an execute resource to run the install script inside the package
-        # downloaded and mounted by #set_up_installer.
-        #
-        def run_installer
-          execute 'install Box Sync' do
-            command ::File.join(Chef::Config[:file_cache_path],
-                                'Box Sync Installer.app',
-                                'Contents/MacOS/Box Sync').gsub(' ', '\ ')
-            creates PATH
-            action :run
-          end
-        end
-
-        #
-        # Use a dmg_package resource to download the installer and mount it so
-        # we can run the install script inside of it.
-        #
-        def set_up_installer
-          s = chase_redirect(URL)
-          dmg_package 'Box Sync' do
-            source s
-            volumes_dir 'Box Sync Installer'
-            destination Chef::Config[:file_cache_path]
-            action :install
-            not_if { ::File.exist?(PATH) }
           end
         end
       end

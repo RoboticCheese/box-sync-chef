@@ -23,6 +23,9 @@ Usage
 Either add the default recipe to your run_list or implement the resource
 directly in a recipe of your own.
 
+The cookbook will complete the initial install, but Box Sync will still prompt
+you for a password to complete installation the first time it's started.
+
 Recipes
 =======
 
