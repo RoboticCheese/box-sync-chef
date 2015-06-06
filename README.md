@@ -10,65 +10,63 @@ Box Sync Cookbook
 [codeclimate]: https://codeclimate.com/github/RoboticCheese/box-sync-chef
 [coveralls]: https://coveralls.io/r/RoboticCheese/box-sync-chef
 
-TODO: Enter the cookbook description here.
+A Chef cookbook for Box Sync.
 
 Requirements
 ============
 
-TODO: Describe cookbook dependencies.
+This cookbook currently supports OS X only.
 
 Usage
 =====
 
-TODO: Describe how to use the cookbook.
+Either add the default recipe to your run_list or implement the resource
+directly in a recipe of your own.
 
 Recipes
 =======
 
 ***default***
 
-TODO: Describe each component recipe.
-
-Attributes
-==========
-
-***default***
-
-TODO: Describe any noteworthy attributes.
+Installs Box Sync.
 
 Resources
 =========
 
-***box_sync***
+***box_sync_app***
 
-TODO: Describe each included resource.
+Used to install or remove the Box Sync app.
 
 Syntax:
 
-    box_sync 'my_resource' do
-        attribute1 'value1'
-        action :create
+    box_sync_app 'default' do
+        action :install
     end
 
 Actions:
 
-| Action  | Description  |
-|---------|--------------|
-| action1 | Do something |
+| Action       | Description       |
+|--------------|-------------------|
+| `:install`   | Install the app   |
+| `:uninstall` | Uninstall the app |
 
 Attributes:
 
 | Attribute  | Default        | Description          |
 |------------|----------------|----------------------|
-| attribute1 | `'some_value'` | Do something         |
-| action     | `:create`      | Action(s) to perform |
+| action     | `:install`     | Action(s) to perform |
 
 Providers
 =========
 
-TODO: Describe each included provider
+***Chef::Provider::BoxSyncApp::MacOsX***
 
-***Chef::Provider::SomeProvider***
+Provider for Mac OS X platforms.
+
+***Chef::Provider::BoxSyncApp***
+
+A parent provider class for all the platform-specific providers to inherit
+from.
 
 Contributing
 ============
