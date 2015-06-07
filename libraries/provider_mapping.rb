@@ -25,6 +25,6 @@ require_relative 'provider_box_sync_app'
 Chef::Platform.set(platform: :mac_os_x,
                    resource: :box_sync_app,
                    provider: Chef::Provider::BoxSyncApp::MacOsX)
-# TODO: Chef::Platform.set(platform: :windows,
-#                    resource: :box_sync_app,
-#                    provider: Chef::Provider::BoxSyncApp::Windows)
+Chef::Platform.set(platform: :windows,
+                   resource: :box_sync_app,
+                   provider: Chef::Provider::BoxSyncApp::Windows)

@@ -11,7 +11,6 @@ describe 'box-sync::app' do
 
   describe package('Box Sync'), if: os[:family] == 'windows' do
     it 'is installed' do
-      pending
       expect(subject).to be_installed
     end
   end

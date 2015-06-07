@@ -10,6 +10,8 @@ long_description 'Installs the Box Sync app'
 version          '0.0.1'
 
 supports         'mac_os_x'
+supports         'windows'
 
 depends          'dmg', '~> 2.2'
+depends          'windows', '~> 1.37'
 # rubocop:enable SingleSpaceBeforeFirstArg

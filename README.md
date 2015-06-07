@@ -15,7 +15,7 @@ A Chef cookbook for Box Sync.
 Requirements
 ============
 
-This cookbook currently supports OS X only.
+This cookbook currently supports OS X and Windows.
 
 Usage
 =====
@@ -24,7 +24,7 @@ Either add the default recipe to your run_list or implement the resource
 directly in a recipe of your own.
 
 The cookbook will complete the initial install, but Box Sync will still prompt
-you for a password to complete installation the first time it's started.
+you for a password in OS X the first time it's started.
 
 Recipes
 =======
@@ -65,6 +65,10 @@ Providers
 ***Chef::Provider::BoxSyncApp::MacOsX***
 
 Provider for Mac OS X platforms.
+
+***Chef::Provider::BoxSyncApp::Windows***
+
+Provider for Windows platforms.
 
 ***Chef::Provider::BoxSyncApp***
 
