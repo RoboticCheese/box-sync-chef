@@ -22,7 +22,7 @@ require 'chef/provider/lwrp_base'
 require 'net/http'
 require_relative 'resource_box_sync_app'
 require_relative 'provider_box_sync_app_mac_os_x'
-# TODO: require_relative 'provider_box_sync_app_windows'
+require_relative 'provider_box_sync_app_windows'
 
 class Chef
   class Provider

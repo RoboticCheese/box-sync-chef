@@ -22,7 +22,6 @@ describe 'box-sync::provider_mapping' do
     let(:platform) { :windows }
 
     it 'uses the Windows app provider' do
-      pending
       expect(app_provider).to eq(Chef::Provider::BoxSyncApp::Windows)
     end
   end

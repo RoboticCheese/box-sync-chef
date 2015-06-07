@@ -24,7 +24,7 @@ require_relative 'provider_box_sync_app'
 class Chef
   class Provider
     class BoxSyncApp < Provider::LWRPBase
-      # An provider for managing the Box Sync on OS X.
+      # An provider for managing the Box Sync app on OS X.
       #
       # @author Jonathan Hartman <j@p4nt5.com>
       class MacOsX < BoxSyncApp
