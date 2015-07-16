@@ -31,6 +31,8 @@ class Chef
         URL ||= 'http://box.com/sync4mac'
         PATH ||= '/Applications/Box Sync.app'
 
+        provides :box_sync_app, platform_family: 'mac_os_x'
+
         private
 
         #
