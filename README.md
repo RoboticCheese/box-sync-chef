@@ -1,12 +1,14 @@
 Box Sync Cookbook
 =================
 [![Cookbook Version](https://img.shields.io/cookbook/v/box-sync.svg)][cookbook]
-[![Build Status](https://img.shields.io/travis/RoboticCheese/box-sync-chef.svg)][travis]
+[![OS X Build Status](https://img.shields.io/travis/RoboticCheese/box-sync-chef.svg)][travis]
+[![Windows Build Status](https://img.shields.io/appveyor/ci/RoboticCheese/box-sync-chef.svg)][appveyor]
 [![Code Climate](https://img.shields.io/codeclimate/github/RoboticCheese/box-sync-chef.svg)][codeclimate]
 [![Coverage Status](https://img.shields.io/coveralls/RoboticCheese/box-sync-chef.svg)][coveralls]
 
 [cookbook]: https://supermarket.chef.io/cookbooks/box-sync
 [travis]: https://travis-ci.org/RoboticCheese/box-sync-chef
+[appveyor]: https://ci.appveyor.com/project/RoboticCheese/box-sync-chef
 [codeclimate]: https://codeclimate.com/github/RoboticCheese/box-sync-chef
 [coveralls]: https://coveralls.io/r/RoboticCheese/box-sync-chef
 
