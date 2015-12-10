@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: box-sync
-# Library:: box_sync_app
+# Library:: resource_box_sync_app
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -18,27 +18,22 @@
 # limitations under the License.
 #
 
-require 'chef/resource/lwrp_base'
+require 'chef/resource'
 
 class Chef
   class Resource
-    # A Chef resource for the Box Sync app.
+    # A Chef custom resource for the Box Sync app.
     #
     # @author Jonathan Hartman <j@p4nt5.com>
-    class BoxSyncApp < Resource::LWRPBase
-      self.resource_name = :box_sync_app
-      actions :install, :remove # TODO: , :enable, :disable, :start, :stop
+    class BoxSyncApp < Resource
       default_action :install
 
-      #
-      # Attribute for the app's installed status.
-      #
-      attribute :installed,
-                kind_of: [NilClass, TrueClass, FalseClass],
-                default: nil
-      alias_method :installed?, :installed
-
-      # TODO: attribute :package_url
+      %i(install remove).each do |a|
+        action a do
+          fail(NotImplementedError,
+               "Action '#{a}' must be implemented for '#{self.class}' resource")
+        end
+      end
     end
   end
 end

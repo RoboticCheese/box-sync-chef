@@ -17,12 +17,16 @@ A Chef cookbook for Box Sync.
 Requirements
 ============
 
+As of v1.0.0, this cookbook requires Chef 12.5+, or Chef 12.1+ if the
+[compat_resource](https://supermarket.chef.io/cookbooks/compat_resource)
+cookbook is used.
+
 This cookbook currently supports OS X and Windows.
 
 Usage
 =====
 
-Either add the default recipe to your run_list or implement the resource
+Either add the default recipe to your run_list or implement the resources
 directly in a recipe of your own.
 
 The cookbook will complete the initial install, but Box Sync will still prompt
@@ -50,10 +54,10 @@ Syntax:
 
 Actions:
 
-| Action       | Description       |
-|--------------|-------------------|
-| `:install`   | Install the app   |
-| `:uninstall` | Uninstall the app |
+| Action     | Description       |
+|------------|-------------------|
+| `:install` | Install the app   |
+| `:remove`  | Uninstall the app |
 
 Attributes:
 
@@ -61,21 +65,13 @@ Attributes:
 |------------|----------------|----------------------|
 | action     | `:install`     | Action(s) to perform |
 
-Providers
-=========
+***box_sync_app_mac_os_x***
 
-***Chef::Provider::BoxSyncApp::MacOsX***
+An OS X implementation of the `box_sync_app` resource.
 
-Provider for Mac OS X platforms.
+***box_sync_app_windows***
 
-***Chef::Provider::BoxSyncApp::Windows***
-
-Provider for Windows platforms.
-
-***Chef::Provider::BoxSyncApp***
-
-A parent provider class for all the platform-specific providers to inherit
-from.
+A Windows implementation of the `box_sync_app` resource.
 
 Contributing
 ============

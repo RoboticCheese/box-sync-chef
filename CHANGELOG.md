@@ -3,7 +3,7 @@ Box Sync Cookbook CHANGELOG
 
 v?.?.? (????-??-??)
 -------------------
-- Update provider resolver to use new style
+- Convert to Chef custom resources (breaking compatibility with Chef < 12.5)
 - Update package download URLs
 
 v0.1.0 (2015-06-07)
