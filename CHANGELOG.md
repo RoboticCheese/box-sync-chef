@@ -1,6 +1,9 @@
 Box Sync Cookbook CHANGELOG
 ===========================
 
+v?.?.? (????-??-??)
+-------------------
+
 v1.0.0 (2015-12-10)
 -------------------
 - Convert to Chef custom resources (breaking compatibility with Chef < 12.5)
