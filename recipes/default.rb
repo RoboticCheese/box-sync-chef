@@ -18,6 +18,4 @@
 # limitations under the License.
 #
 
-box_sync_app 'default' do
-  action :install
-end
+box_sync_app 'default'

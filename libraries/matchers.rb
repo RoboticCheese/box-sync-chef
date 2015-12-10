@@ -21,7 +21,7 @@
 if defined?(ChefSpec)
   ChefSpec.define_matcher(:box_sync_app)
 
-  [:install, :remove].each do |a|
+  %i(install remove).each do |a|
     define_method("#{a}_box_sync_app") do |name|
       ChefSpec::Matchers::ResourceMatcher.new(:box_sync_app, a, name)
     end
