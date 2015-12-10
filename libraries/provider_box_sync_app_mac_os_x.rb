@@ -28,7 +28,8 @@ class Chef
       #
       # @author Jonathan Hartman <j@p4nt5.com>
       class MacOsX < BoxSyncApp
-        URL ||= 'http://box.com/sync4mac'
+        URL ||= 'https://e3.boxcdn.net/box-installers/sync/Sync+4+External/' \
+                'Box%20Sync%20Installer.dmg'
         PATH ||= '/Applications/Box Sync.app'
 
         provides :box_sync_app, platform_family: 'mac_os_x'
@@ -41,9 +42,8 @@ class Chef
         # (see BoxSyncApp#install!)
         #
         def install!
-          s = chase_redirect(URL)
           dmg_package 'Box Sync' do
-            source s
+            source URL
             volumes_dir 'Box Sync Installer'
             action :install
             not_if { ::File.exist?(PATH) }

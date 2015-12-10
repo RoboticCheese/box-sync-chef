@@ -80,25 +80,6 @@ class Chef
         fail(NotImplementedError,
              "`remove!` method not implemented for #{self.class} provider")
       end
-
-      #
-      # Recursively follow a redirect to an eventual final URL. Box uses short
-      # URLs that eventually resolve to lengthy package download URLs.
-      #
-      # @param [String] url
-      # @return [String]
-      #
-      def chase_redirect(url)
-        u = URI.parse(url)
-        (0..9).each do
-          opts = { use_ssl: u.scheme == 'https',
-                   ca_file: Chef::Config[:ssl_ca_file] }
-          resp = Net::HTTP.start(u.host, u.port, opts) { |h| h.head(u.to_s) }
-          return u.to_s unless resp.is_a?(Net::HTTPRedirection)
-          u = URI.parse(resp['location'])
-        end
-        nil
-      end
     end
   end
 end

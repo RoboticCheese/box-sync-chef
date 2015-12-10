@@ -4,6 +4,7 @@ Box Sync Cookbook CHANGELOG
 v?.?.? (????-??-??)
 -------------------
 - Update provider resolver to use new style
+- Update package download URLs
 
 v0.1.0 (2015-06-07)
 -------------------

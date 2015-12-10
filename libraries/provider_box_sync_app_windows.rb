@@ -28,7 +28,8 @@ class Chef
       #
       # @author Jonathan Hartman <j@p4nt5.com>
       class Windows < BoxSyncApp
-        URL ||= 'http://box.com/sync4windows'
+        URL ||= 'https://e3.boxcdn.net/box-installers/sync/Sync+4+External/' \
+                'BoxSyncSetup.exe'
         PATH ||= ::File.expand_path('/Program Files/Box/Box Sync')
 
         include ::Windows::Helper
@@ -38,13 +39,16 @@ class Chef
         private
 
         #
-        # Download and then install the Box Sync .exe package
+        # Use a windows_package resource to install Box Sync.
         #
         # (see BoxSyncApp#install!)
         #
         def install!
-          download_package
-          install_package
+          windows_package 'Box Sync' do
+            source URL
+            installer_type :nsis
+            action :install
+          end
         end
 
         #
@@ -61,39 +65,6 @@ class Chef
             action :run
             only_if { installed_packages.include?('Box Sync') }
           end
-        end
-
-        #
-        # Use a windows_package resource to install the .exe file.
-        #
-        def install_package
-          s = download_path
-          windows_package 'Box Sync' do
-            source s
-            installer_type :nsis
-            action :install
-          end
-        end
-
-        #
-        # Use a remote_file resource to download the .exe file.
-        #
-        def download_package
-          s = chase_redirect(URL)
-          remote_file download_path do
-            source s
-            action :create
-            only_if { !::File.exist?(PATH) }
-          end
-        end
-
-        #
-        # Construct a download destination under Chef's cache dir.
-        #
-        # @return [String]
-        #
-        def download_path
-          ::File.join(Chef::Config[:file_cache_path], 'Box Sync.exe')
         end
       end
     end

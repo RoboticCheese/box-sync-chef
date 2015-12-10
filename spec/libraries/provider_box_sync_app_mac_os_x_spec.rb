@@ -24,15 +24,10 @@ describe Chef::Provider::BoxSyncApp::MacOsX do
   end
 
   describe '#install!' do
-    before(:each) do
-      allow_any_instance_of(described_class).to receive(:chase_redirect)
-        .with(described_class::URL).and_return('http://example.com/box.dmg')
-    end
-
     it 'uses a dmg_package resource to prep the installer' do
       p = provider
       expect(p).to receive(:dmg_package).with('Box Sync').and_yield
-      expect(p).to receive(:source).with('http://example.com/box.dmg')
+      expect(p).to receive(:source).with(described_class::URL)
       expect(p).to receive(:volumes_dir).with('Box Sync Installer')
       expect(p).to receive(:action).with(:install)
       expect(p).to receive(:not_if).and_yield
