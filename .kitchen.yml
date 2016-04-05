@@ -20,6 +20,6 @@ suites:
     run_list:
       - recipe[box-sync]
     attributes:
-  - name: uninstall
+  - name: remove
     run_list:
-      - recipe[box-sync_test::uninstall]
+      - recipe[box-sync_test::remove]

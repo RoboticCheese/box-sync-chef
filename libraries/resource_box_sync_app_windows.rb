@@ -27,8 +27,8 @@ class Chef
     # @author Jonathan Hartman <j@p4nt5.com>
     class BoxSyncAppWindows < BoxSyncApp
       URL ||= 'https://e3.boxcdn.net/box-installers/sync/Sync+4+External/' \
-              'BoxSyncSetup.exe'
-      PATH ||= ::File.expand_path('/Program Files/Box/Box Sync')
+              'BoxSyncSetup.exe'.freeze
+      PATH ||= ::File.expand_path('/Program Files/Box/Box Sync').freeze
 
       include ::Windows::Helper
 
