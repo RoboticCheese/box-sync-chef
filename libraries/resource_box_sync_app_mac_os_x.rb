@@ -27,8 +27,8 @@ class Chef
     # @author Jonathan Hartman <j@p4nt5.com>
     class BoxSyncAppMacOsX < BoxSyncApp
       URL ||= 'https://e3.boxcdn.net/box-installers/sync/Sync+4+External/' \
-              'Box%20Sync%20Installer.dmg'
-      PATH ||= '/Applications/Box Sync.app'
+              'Box%20Sync%20Installer.dmg'.freeze
+      PATH ||= '/Applications/Box Sync.app'.freeze
 
       provides :box_sync_app, platform_family: 'mac_os_x'
 
